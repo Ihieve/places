@@ -1,0 +1,14 @@
+<svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  
+  <!-- Map Pin -->
+  <path d="M50 5C32 5 18 19 18 36C18 60 50 95 50 95C50 95 82 60 82 36C82 19 68 5 50 5Z" fill="#22c55e"></path>
+
+  <!-- Inner Circle -->
+  <circle cx="50" cy="36" r="16" fill="white"></circle>
+
+  <!-- Leaf -->
+  <path d="M50 26C44 32 44 42 50 46C56 42 56 32 50 26Z" fill="#22c55e"></path>
+
+  <path d="M50 30V46" stroke="#16a34a" stroke-width="2" stroke-linecap="round"></path>
+
+</svg>

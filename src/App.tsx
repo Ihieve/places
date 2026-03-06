@@ -1,35 +1,64 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0)
+import Home from "./pages/Home";
+import Explore from "./pages/Explore";
+import LandingPage from "./pages/LandingPage";
+import Onboarding from "./pages/Onboarding";
+import MapScreen from "./pages/MapScreen";
+import PlaceDetails from "./pages/PlaceDetails";
+import Favorites from "./pages/Favorites";
+import Profile from "./pages/Profile";
+import Reviews from "./pages/Reviews";
+import Settings from "./pages/Settings";
 
+import MainLayout from "./component/layout/MainLayout";
+
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+   
+      <Routes>
+        {/* Pages without BottomNav */}
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/onboarding" element={<Onboarding />} />
+        <Route path="/map" element={<MapScreen />} />
+        <Route path="/place/:id" element={<PlaceDetails />} />
+        <Route path="/reviews" element={<Reviews />} />
+        <Route path="/settings" element={<Settings />} />
 
-export default App
+        {/* Pages with BottomNav */}
+        <Route
+          path="/home"
+          element={
+            <MainLayout>
+              <Home />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/explore"
+          element={
+            <MainLayout>
+              <Explore />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/favorites"
+          element={
+            <MainLayout>
+              <Favorites />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <MainLayout>
+              <Profile />
+            </MainLayout>
+          }
+        />
+      </Routes>
+  
+  );
+}
